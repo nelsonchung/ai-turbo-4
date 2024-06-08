@@ -124,11 +124,11 @@ def make_requests(client, model, inputs, data_type):
 
 def get_user_choices():
     choices = {'text': False, 'image': False, 'audio': False, 'video': False}
-    print("請選擇輸入的數據類型（可多選，輸入完成後按回車）:")
+    print("請選擇輸入的數據類型（可多選，輸入完成後按Enter）:")
     print("1. 文字")
     print("2. 圖片")
-    print("3. 音頻")
-    print("4. 視頻")
+    print("3. 聲音")
+    print("4. 影片")
     selected_options = input("請輸入選項號碼（用空格分隔，例如：1 2 3）: ").split()
     
     for option in selected_options:
@@ -160,7 +160,7 @@ client = create_client(api_key)
 # 暫時隱藏的預設文本輸入功能
 # text_content = read_text('generate_utility/input.txt')
 image_data = read_image('generate_utility/input_image.png')  # 假設存在 image 文件
-audio_data = read_audio('input_audio.mp3')  # 假設存在 audio 文件
+audio_data = read_audio('nelson_input_audio.mp3')  # 假設存在 audio 文件
 video_data = read_video('generate_utility/input_video.mp4')  # 假設存在 video 文件
 
 max_tokens = 10000  # 將最大令牌數作為可調參數
