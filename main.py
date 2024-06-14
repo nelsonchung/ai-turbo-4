@@ -85,8 +85,9 @@ def make_text_requests(client, model, inputs):
     for index, input_data in enumerate(inputs, start=1):
         messages = [{"role": "system", "content": "你是一位程式規劃與寫作專家，請協助讀懂我的程式碼並記憶起來。後續會提供你需要完成的需求。請使用繁體中文回答我。"},
                     {"role": "user", "content": input_data}]
-        response = client.ChatCompletion.create(model=model, messages=messages)
-        message_content = response['choices'][0]['message']['content']
+        response = client.chat.completions.create(model=model, messages=messages)
+        #message_content = response['choices'][0]['message']['content']
+        message_content = response.choices[0].message.content
         print(f"=== Response #{index} ===")  # 顯示回應的次序
         print("Response from the OpenAI API:", message_content)
         responses.append(message_content)
